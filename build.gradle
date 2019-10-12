@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'jpa-basic-study'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+print(sourceSets.main.output.resourcesDir)
+print(sourceSets.main.output.classesDir)
+sourceSets.main.output.resourcesDir = sourceSets.main.output.classesDir
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.3.10.Final'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.199'
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+}
