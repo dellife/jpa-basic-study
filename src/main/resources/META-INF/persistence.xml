@@ -9,6 +9,9 @@
 
         <class>com.dellife.jpa.entity.Member</class>
         <class>com.dellife.jpa.entity.Team</class>
+        <class>com.dellife.jpa.entity.Order</class>
+        <class>com.dellife.jpa.entity.Product</class>
+        <class>com.dellife.jpa.entity.Address</class>
 
         <properties>
 
@@ -17,14 +20,14 @@
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value="sa"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 
             <!-- 옵션 -->
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
-            <property name="hibernate.use_sql_comments" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="create" />
-            <property name="hibernate.id.new_generator_mappings" value="true" />
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.id.new_generator_mappings" value="true"/>
 
         </properties>
     </persistence-unit>

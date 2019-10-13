@@ -6,8 +6,6 @@ group 'jpa-basic-study'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
-print(sourceSets.main.output.resourcesDir)
-print(sourceSets.main.output.classesDir)
 sourceSets.main.output.resourcesDir = sourceSets.main.output.classesDir
 
 repositories {
