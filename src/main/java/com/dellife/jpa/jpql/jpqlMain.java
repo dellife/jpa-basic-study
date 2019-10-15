@@ -4,10 +4,7 @@ package com.dellife.jpa.jpql;
 import com.dellife.jpa.entity.Member;
 import com.dellife.jpa.entity.Team;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 
 public class jpqlMain {
@@ -47,6 +44,22 @@ public class jpqlMain {
             List<Member> result2 = em.createQuery(joinQuery, Member.class)
                     .getResultList();
 
+
+            String caseQuery = "select " +
+                    "case when m.age <= 10 then '학생요금' " +
+                    "      when m.age > 60 then '경로요금' " +
+                    "      else '일반요금' end " +
+                    " from Member m ";
+            List<String> result3 = em.createQuery(caseQuery, String.class)
+                    .getResultList();
+            System.out.println(result3.get(0));
+
+            String coalesceQuery = "select coalesce(m.userName, '이름없는회원') from Member m"; //사용자 이름이 없으면 이름없는 회원 반환
+            em.createQuery(coalesceQuery);
+
+            //사용자 이름이 관리자면 null을 반환/나머지는 본인의 이름을 반환 -> 두 값이 같으면 null 반환, 다르면 첫번째 값 반환
+            String nullIfQuery = "select NULLIF(m.userName, '관리자') from Member m";
+            em.createQuery(nullIfQuery);
 
             tx.commit();
         } catch (Exception e) {
