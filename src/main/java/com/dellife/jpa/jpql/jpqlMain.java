@@ -4,7 +4,10 @@ package com.dellife.jpa.jpql;
 import com.dellife.jpa.entity.Member;
 import com.dellife.jpa.entity.Team;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import java.util.List;
 
 public class jpqlMain {
@@ -60,6 +63,9 @@ public class jpqlMain {
             //사용자 이름이 관리자면 null을 반환/나머지는 본인의 이름을 반환 -> 두 값이 같으면 null 반환, 다르면 첫번째 값 반환
             String nullIfQuery = "select NULLIF(m.userName, '관리자') from Member m";
             em.createQuery(nullIfQuery);
+
+            String impliedQuery = "select t.members from Team t";
+            em.createQuery(impliedQuery);
 
             tx.commit();
         } catch (Exception e) {
