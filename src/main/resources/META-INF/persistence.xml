@@ -30,6 +30,10 @@
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.id.new_generator_mappings" value="true"/>
 
+            <!--// @BatchSize 의 Global 설정 1000이하의 값 적절히 설정.-->
+            <!--<property name="hibernate.default_batch_fetch_size" value="true"/>-->
+
+
         </properties>
     </persistence-unit>
 
