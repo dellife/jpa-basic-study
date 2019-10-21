@@ -11,7 +11,10 @@ import javax.persistence.*;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table
+@NamedQuery(
+        name = "Member.findByUserName",
+        query = "select m From Member m where m.userName = :userName"
+)
 public class Member {
 
     @Id
